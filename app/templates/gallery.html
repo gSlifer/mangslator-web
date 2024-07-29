@@ -1,0 +1,42 @@
+{% extends "bootstrap/base.html" %} 
+{% block title %}Galería de Imágenes{% endblock %} 
+{% block head %} {{ super() }}
+
+<head>
+  <title>Galería de Imágenes</title>
+  <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+  <script src="static/js/main.js"></script>
+  <style>
+    /* Agregar estilos personalizados si es necesario */
+    /* Para centrar el contenido */
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+{% endblock %} 
+{% block body %}
+
+<div class="center-content">
+  <h1 class="text-center">Galería de Imágenes</h1>
+  <a href="/mangslator-web" class="button">Volver a la página de inicio</a>
+  
+  <div id="navigation" class="d-flex justify-content-center">
+    <button id="prev">Anterior</button>
+    <button id="next">Siguiente</button>
+  </div>
+
+  <div id="image-gallery" class="d-flex justify-content-center text-center mx-auto">
+    {% for img in uploaded_files %}
+      <!-- <p>{{item}}</p> -->
+      <img src="{{img}}" alt="{{ img }}" class="img-thumbnail" style="max-width: 75%;" />
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
